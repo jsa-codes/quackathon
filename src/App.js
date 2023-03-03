@@ -5,7 +5,7 @@ import Favorites from "./components/Favorites";
 import React, { useState, useEffect } from "react";
 
 export default function App() {
-  const [catObj, setCatObj] = useState([]);
+  const [catArray, setCatArray] = useState([]);
 
   useEffect(() => {
     async function getImages() {
@@ -16,7 +16,7 @@ export default function App() {
           contentType: "application/json",
         });
         const catJSON = await response.json();
-        setCatObj(catJSON);
+        setCatArray(catJSON);
       } catch (err) {
         console.error(err);
       }
@@ -27,7 +27,7 @@ export default function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Home catObj={catObj} />} />
+        <Route path="/" element={<Home catArray={catArray} />} />
         <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </div>
