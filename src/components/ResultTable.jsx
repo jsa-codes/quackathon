@@ -1,6 +1,7 @@
 import { DataGrid } from "@mui/x-data-grid";
 import Box from "@mui/material/Box";
 import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
 
 const cols = [
     {
@@ -43,6 +44,26 @@ const cols = [
  * @returns {JSXElement} the ResultTable component rendered content
  */
 export default function ResultTable({ catArray }) {
+    const [selections, setSelections] = useState([]);
+
+
+    useEffect(() => {
+
+        console.log('CURRENT SELECTIONS: ', selections);
+        const data = JSON.stringify(selections);
+        localStorage.setItem('myCats', data);
+
+        console.log(localStorage.getItem('myCats'))
+    }, [selections])
+    const isNewCat = (newCat) => {
+        // no cats so selection is new.
+        // if (selections.length === 0) return true;
+
+        const duplicate = selections.find(cat => cat.name === newCat.name);
+        if (duplicate) return false;
+
+        return true;
+    };
     return (
         <Box sx={{ height: 400, width: "100%" }}>
             {catArray.length > 0 ? (
@@ -57,9 +78,21 @@ export default function ResultTable({ catArray }) {
                         },
                     }}
                     pageSizeOptions={[5]}
-                    checkboxSelection
-                    disableRowSelectionOnClick
+
                     getRowId={(row) => row?.name}
+                    onRowSelectionModelChange={(newRowSelectionModel) => {
+
+                        const newCat = catArray.find(element => element.name === newRowSelectionModel[0]);
+                        console.log('get the actual data', newCat);
+                        if (isNewCat(newCat)) {
+                            console.log('adding cat', newCat);
+                            setSelections([...selections, newCat]);
+
+                        } else {
+                            return;
+                        }
+
+                    }}
                 />
             ) : (
                 <div>Loading...</div>
