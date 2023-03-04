@@ -1,19 +1,20 @@
 import React from "react";
 import Header from "./Header";
-import { Typography, ImageList, ImageListItem } from "@mui/material";
+import { Typography } from "@mui/material";
+import ResultTable from "./ResultTable";
 
 export default function Home({ catArray }) {
+  // Testing to see if "catArray" renders correctly
+  console.log(catArray);
+
   return (
     <div>
       <Header />
+      <small>
+        You are running this application in <b>{process.env.NODE_ENV}</b> mode.
+      </small>
       <Typography> Home Page </Typography>
-      <ImageList sx={{ width: 750, height: 750 }} cols={5} rowHeight={165}>
-        {catArray.map((catObj) => (
-          <ImageListItem>
-            <img src={`${catObj.image_link}`} loading="lazy" alt="cat" />
-          </ImageListItem>
-        ))}
-      </ImageList>
+      <ResultTable catArray={catArray} />
     </div>
   );
 }
