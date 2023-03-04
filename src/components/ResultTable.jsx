@@ -40,7 +40,7 @@ const cols = [
 /**
  * Takes in a array of cat data objects setting the data in appropriate cols. Allows users to store selections in localStorage.
  * @param {array} catArray array of cat objects returned by the ninja api
- * @returns {JSXElement} your calculated age
+ * @returns {JSXElement} the ResultTable component rendered content
  */
 export default function ResultTable({ catArray }) {
     return (
