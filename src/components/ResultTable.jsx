@@ -2,7 +2,6 @@ import { DataGrid } from "@mui/x-data-grid";
 import Box from "@mui/material/Box";
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
-import FavoritesList from "./FavoritesList";
 
 const cols = [
     {
@@ -98,7 +97,7 @@ export default function ResultTable({ catArray }) {
             ) : (
                 <div>Loading...</div>
             )}
-            <FavoritesList />
+
         </Box>
     );
 }
