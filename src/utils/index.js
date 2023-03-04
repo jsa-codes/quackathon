@@ -5,7 +5,7 @@ export async function getImages(offset, callback) {
       {
         method: "GET",
         headers: {
-          "X-Api-Key": "OqfR/xiDH5FzbG4Dsj8WVA==Y1LlPslook0082vG",
+          "X-Api-Key": `${process.env.REACT_APP_API_NINJA}`,
         },
         contentType: "application/json",
       }

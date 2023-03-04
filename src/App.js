@@ -10,7 +10,7 @@ export default function App() {
 
   useEffect(() => {
     // get the first 20 cats.
-    getImages(50, setCatArray);
+    getImages(0, setCatArray);
   }, []);
 
   return (
