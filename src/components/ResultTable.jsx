@@ -53,8 +53,9 @@ export default function ResultTable({ catArray }) {
         const data = JSON.stringify(selections);
         localStorage.setItem('myCats', data);
 
-        console.log(localStorage.getItem('myCats'))
+
     }, [selections])
+
     const isNewCat = (newCat) => {
         // no cats so selection is new.
         // if (selections.length === 0) return true;
