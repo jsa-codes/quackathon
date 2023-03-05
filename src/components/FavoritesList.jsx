@@ -8,7 +8,7 @@ export default function FavoritesList() {
     const [favorites, setFavorites] = useState(faves);
 
     return (
-        favorites ? (favorites.map(cat => {
+        favorites && favorites.length !== 0 ? (favorites.map(cat => {
             return (
                 <Grid container >
                     <Grid item xs={12} sm={6} md={4} />
@@ -26,11 +26,11 @@ export default function FavoritesList() {
                         </CardContent>
                     </Card>
                 </Grid> )
-        })):(favorites.map(cat => {
-            return ( <Typography>
-                {cat.name}
+        })):
+            ( <Typography>
+                Go select some cats you like from the Home Page!
                 </Typography>)
-        }))
+        
     )
 
         
