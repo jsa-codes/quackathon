@@ -14,7 +14,7 @@ export default function FavoritesList() {
                     <Grid item xs={12} sm={6} md={4} />
                     <Card elevation={15}>
                         <CardMedia>
-                            <img src={cat.image_link} width="575" height="475" />
+                            <img src={cat.image_link} width="575" height="475" alt={`${cat?.name} thumbnail`} />
                         </CardMedia>
                         <CardContent>
                             <Typography>
@@ -25,13 +25,13 @@ export default function FavoritesList() {
                             </Typography>
                         </CardContent>
                     </Card>
-                </Grid> )
-        })):
-            ( <Typography>
+                </Grid>)
+        })) :
+            (<Typography>
                 Go select some cats you like from the Home Page!
-                </Typography>)
-        
+            </Typography>)
+
     )
 
-        
+
 }

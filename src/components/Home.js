@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import ResultTable from "./ResultTable";
 
 export default function Home({ catArray }) {
@@ -7,12 +7,9 @@ export default function Home({ catArray }) {
   console.log(catArray);
 
   return (
-    <div>
-      <small>
-        You are running this application in <b>{process.env.NODE_ENV}</b> mode.
-      </small>
+    <Container maxWidth="sm">
       <Typography> Home Page </Typography>
       <ResultTable catArray={catArray} />
-    </div>
+    </Container>
   );
 }
